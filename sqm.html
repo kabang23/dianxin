@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拾起卖咨询 - 再生资源行业全链路解决方案专家</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+        
+        :root {
+            --primary: #047857;
+            --primary-light: #d1fae5;
+            --primary-dark: #064e3b;
+            --secondary: #1e40af;
+            --dark: #1f2937;
+            --light: #f9fafb;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            scroll-behavior: smooth;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(4, 120, 87, 0.9) 0%, rgba(6, 78, 59, 0.95) 100%), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%2310b981" opacity="0.2" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .process-step {
+            position: relative;
+            padding-top: 2rem;
+        }
+        .process-step::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary);
+            border: 4px solid var(--primary-light);
+            border-radius: 50%;
+            z-index: 2;
+        }
+        .process-connector::after {
+            content: "";
+            position: absolute;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: calc(100% - 24px);
+            background: linear-gradient(to bottom, var(--primary-light), rgba(209, 250, 229, 0));
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 10px 20px -5px rgba(4, 120, 87, 0.3);
+        }
+        
+        .case-study-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .case-header {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .case-header::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        .case-header i {
+            font-size: 60px;
+            z-index: 1;
+        }
+        
+        .stat-item {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .stat-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
+        }
+        
+        .testimonial-quote {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .testimonial-quote::before {
+            content: """;
+            position: absolute;
+            left: 0;
+            top: -0.5rem;
+            font-size: 4rem;
+            color: var(--primary-light);
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(4, 120, 87, 0.4);
+        }
+        
+        .btn-outline-white {
+            transition: all 0.3s ease;
+        }
+        .btn-outline-white:hover {
+            background-color: white;
+            color: var(--primary-dark);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-recycle text-3xl text-emerald-600"></i>
+                        <span class="ml-3 text-2xl font-bold text-gray-800">拾起卖咨询</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="#services" class="text-gray-800 hover:text-emerald-600 font-medium nav-link">服务内容</a>
+                    <a href="#process" class="text-gray-800 hover:text-emerald-600 font-medium nav-link">服务流程</a>
+                    <a href="#cases" class="text-gray-800 hover:text-emerald-600 font-medium nav-link">成功案例</a>
+                    <a href="#about" class="text-gray-800 hover:text-emerald-600 font-medium nav-link">关于我们</a>
+                    <a href="#contact" class="bg-emerald-600 text-white px-6 py-2 rounded-md font-bold hover:bg-emerald-700 transition duration-300 btn-primary">联系我们</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-24 md:py-32">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">再生资源行业全链路解决方案</h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">十年专注再生资源网络建设，为政企客户提供专业咨询服务</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#contact" class="bg-white text-emerald-700 px-8 py-3 rounded-md font-bold text-center hover:bg-gray-100 transition duration-300 btn-primary">获取定制方案</a>
+                    <a href="#cases" class="border-2 border-white text-white px-8 py-3 rounded-md font-bold text-center hover:bg-white hover:text-emerald-700 transition duration-300 btn-outline-white">查看行业案例</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-emerald-100 rounded-2xl opacity-50"></div>
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-emerald-100 rounded-2xl opacity-50"></div>
+                    <div class="relative bg-white p-8 rounded-2xl shadow-xl max-w-md">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-emerald-100 text-emerald-800 p-3 rounded-lg mr-4">
+                                <i class="fas fa-lightbulb text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">专家洞察</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">根据我们最新行业报告显示，科学规划的再生资源回收网络可降低运营成本30%，提升资源利用率45%</p>
+                        <div class="flex justify-between">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">10+</div>
+                                <div class="text-sm text-gray-500">行业经验</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">200+</div>
+                                <div class="text-sm text-gray-500">服务客户</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">50+</div>
+                                <div class="text-sm text-gray-500">城市覆盖</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 section-title">行业专家解决方案</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">基于十年行业深耕，我们为政府和企业提供最具专业价值的再生资源网络建设服务</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm border-l-4 border-emerald-500 card-hover">
+                    <div class="text-emerald-600 mb-6">
+                        <i class="fas fa-chart-line text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">降本增效</h3>
+                    <p class="text-gray-600 mb-6">科学选址模型与标准化运营体系，平均减少客户前期试错成本35%</p>
+                    <ul class="text-gray-600 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                            <span>GIS智能选址分析系统</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                            <span>运营成本动态测算模型</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                            <span>回收网络效能评估体系</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm border-l-4 border-emerald-500 card-hover">
+                    <div class="text-emerald-600 mb-6">
+                        <i class="fas fa-shield-alt text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">合规保障</h3>
+                    <p class="text-gray-600 mb-6">覆盖全国50+城市政策数据库，确保项目100%符合监管要求</p>
+                    <ul class="text-gray-600 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                            <span>地方政策专项解读报告</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                            <span>资质申请全流程指导</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                            <span>环保合规风险预警系统</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm border-l-4 border-emerald-500 card-hover">
+                    <div class="text-emerald-600 mb-6">
+                        <i class="fas fa-project-diagram text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">资源整合</h3>
+                    <p class="text-gray-600 mb-6">连接产业链上下游300+合作伙伴，构建高效资源循环体系</p>
+                    <ul class="text-gray-600 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                            <span>产废端精准对接方案</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                            <span>处理端资源优化配置</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                            <span>全链条数字化追踪系统</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 section-title">专业服务内容</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">覆盖再生资源全产业链的专业咨询服务，助力构建城市废弃物循环经济体系</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300 card-hover">
+                    <div class="service-icon">
+                        <i class="fas fa-trash-restore"></i>
+                    </div>
+                    <div class="px-6 pb-8">
+                        <h3 class="text-xl font-bold mb-4 text-center text-gray-800">前端回收体系建设</h3>
+                        <p class="text-gray-600 mb-6 text-center">科学规划回收点、移动回收站、中转站网络布局，建立高效回收体系</p>
+                        <ul class="text-gray-600 space-y-3">
+                            <li class="stat-item">GIS智能选址与成本测算</li>
+                            <li class="stat-item">标准化建设与运营方案</li>
+                            <li class="stat-item">加盟商合作模式设计</li>
+                            <li class="stat-item">回收人员管理体系建设</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300 card-hover">
+                    <div class="service-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <div class="px-6 pb-8">
+                        <h3 class="text-xl font-bold mb-4 text-center text-gray-800">绿色分拣中心建设</h3>
+                        <p class="text-gray-600 mb-6 text-center">现代化分拣中心规划设计，实现高效分类与资源最大化利用</p>
+                        <ul class="text-gray-600 space-y-3">
+                            <li class="stat-item">环保合规设计与设备选型</li>
+                            <li class="stat-item">分拣流程标准化制定</li>
+                            <li class="stat-item">自动化分拣系统规划</li>
+                            <li class="stat-item">环保验收全流程支持</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300 card-hover">
+                    <div class="service-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="px-6 pb-8">
+                        <h3 class="text-xl font-bold mb-4 text-center text-gray-800">财税合规咨询</h3>
+                        <p class="text-gray-600 mb-6 text-center">再生资源行业专项财税解决方案，优化税务结构，降低合规风险</p>
+                        <ul class="text-gray-600 space-y-3">
+                            <li class="stat-item">增值税即征即退政策落地</li>
+                            <li class="stat-item">再生资源税收优惠申请</li>
+                            <li class="stat-item">合规发票流设计</li>
+                            <li class="stat-item">税务风险防控体系</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300 card-hover">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="px-6 pb-8">
+                        <h3 class="text-xl font-bold mb-4 text-center text-gray-800">数字化平台建设</h3>
+                        <p class="text-gray-600 mb-6 text-center">再生资源回收全流程数字化解决方案，实现可视化监管与智能调度</p>
+                        <ul class="text-gray-600 space-y-3">
+                            <li class="stat-item">智能溯源管理系统</li>
+                            <li class="stat-item">数据可视化大屏</li>
+                            <li class="stat-item">智能调度算法开发</li>
+                            <li class="stat-item">政府监管平台对接</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300 card-hover">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="px-6 pb-8">
+                        <h3 class="text-xl font-bold mb-4 text-center text-gray-800">资质申报服务</h3>
+                        <p class="text-gray-600 mb-6 text-center">专业政策解读与资质申报服务，助力企业获取政策支持与补贴</p>
+                        <ul class="text-gray-600 space-y-3">
+                            <li class="stat-item">再生资源经营资质申请</li>
+                            <li class="stat-item">循环经济示范项目申报</li>
+                            <li class="stat-item">环保专项资金申请</li>
+                            <li class="stat-item">绿色工厂认证辅导</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300 card-hover">
+                    <div class="service-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="px-6 pb-8">
+                        <h3 class="text-xl font-bold mb-4 text-center text-gray-800">运营陪跑服务</h3>
+                        <p class="text-gray-600 mb-6 text-center">从筹建到运营的全周期陪伴式服务，确保项目顺利落地与持续优化</p>
+                        <ul class="text-gray-600 space-y-3">
+                            <li class="stat-item">试点站点全程筹建支持</li>
+                            <li class="stat-item">季度运营复盘与优化</li>
+                            <li class="stat-item">资源对接与关系协调</li>
+                            <li class="stat-item">管理人员培训体系</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 section-title">专业服务流程</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">十年沉淀的标准化服务方法论，确保每个项目高质量交付</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Process Timeline -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Step 1 -->
+                    <div class="relative process-step">
+                        <div class="bg-gray-50 p-8 rounded-xl h-full shadow-sm">
+                            <div class="text-emerald-600 mb-6 text-3xl font-bold">01</div>
+                            <h3 class="text-2xl font-bold mb-4 text-gray-800">深度调研诊断</h3>
+                            <p class="text-gray-600 mb-6">1-2个月周期，全面分析区域再生资源市场现状与痛点</p>
+                            <ul class="text-gray-600 space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-emerald-500 mt-1 mr-3"></i>
+                                    <span>政策合规性专项分析</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-emerald-500 mt-1 mr-3"></i>
+                                    <span>产废端大数据调研</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-emerald-500 mt-1 mr-3"></i>
+                                    <span>竞争格局三维建模</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-emerald-500 mt-1 mr-3"></i>
+                                    <span>可行性评估报告输出</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="process-connector hidden md:block"></div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="relative process-step">
+                        <div class="bg-gray-50 p-8 rounded-xl h-full shadow-sm">
+                            <div class="text-emerald-600 mb-6 text-3xl font-bold">02</div>
+                            <h3 class="text-2xl font-bold mb-4 text-gray-800">专业方案设计</h3>
+                            <p class="text-gray-600 mb-6">2-3个月周期，定制化建设与运营方案设计</p>
+                            <ul class="text-gray-600 space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-emerald-500 mt-1 mr-3"></i>
+                                    <span>智能选址模型构建</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-emerald-500 mt-1 mr-3"></i>
+                                    <span>标准化建设规范制定</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-emerald-500 mt-1 mr-3"></i>
+                                    <span>数字化平台架构设计</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-emerald-500 mt-1 mr-3"></i>
+                                    <span>运营管理SOP开发</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="process-connector hidden md:block"></div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="relative process-step">
+                        <div class="bg-gray-50 p-8 rounded-xl h-full shadow-sm">
+                            <div class="text-emerald-600 mb-6 text-3xl font-bold">03</div>
+                            <h3 class="text-2xl font-bold mb-4 text-gray-800">落地实施陪跑</h3>
+                            <p class="text-gray-600 mb-6">2-3个月周期，确保项目顺利落地与持续优化</p>
+                            <ul class="text-gray-600 space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-emerald-500 mt-1 mr-3"></i>
+                                    <span>试点站点全程筹建</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-emerald-500 mt-1 mr-3"></i>
+                                    <span>产业链资源对接</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-emerald-500 mt-1 mr-3"></i>
+                                    <span>季度运营复盘优化</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-emerald-500 mt-1 mr-3"></i>
+                                    <span>管理人员培训认证</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Payment Process -->
+            <div class="mt-20 bg-gradient-to-r from-emerald-50 to-gray-50 p-10 rounded-2xl shadow-sm">
+                <h3 class="text-2xl font-bold text-center text-gray-800 mb-10">专业服务保障</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-6 text-gray-800 flex items-center">
+                            <i class="fas fa-file-invoice-dollar text-emerald-600 mr-3"></i>
+                            <span>付款流程</span>
+                        </h4>
+                        <div class="bg-white p-6 rounded-lg shadow-xs">
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="bg-emerald-100 text-emerald-800 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold">1</span>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-gray-800">合同签订</h5>
+                                        <p class="text-gray-600 text-sm">支付30%预付款，启动项目</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-emerald-100 text-emerald-800 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold">2</span>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-gray-800">方案交付</h5>
+                                        <p class="text-gray-600 text-sm">支付50%进度款，获取完整方案</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-emerald-100 text-emerald-800 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <span class="font-bold">3</span>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-gray-800">试点验收</h5>
+                                        <p class="text-gray-600 text-sm">支付20%尾款，完成项目交付</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-6 text-gray-800 flex items-center">
+                            <i class="fas fa-shield-alt text-emerald-600 mr-3"></i>
+                            <span>质量保障</span>
+                        </h4>
+                        <div class="bg-white p-6 rounded-lg shadow-xs">
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="bg-emerald-100 text-emerald-800 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-gray-800">专家团队</h5>
+                                        <p class="text-gray-600 text-sm">10年以上行业经验专家全程服务</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-emerald-100 text-emerald-800 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-gray-800">数据支撑</h5>
+                                        <p class="text-gray-600 text-sm">自有行业数据库确保决策科学性</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-emerald-100 text-emerald-800 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-gray-800">效果保障</h5>
+                                        <p class="text-gray-600 text-sm">方案缺陷导致延期免费迭代</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="cases" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 section-title">行业标杆案例</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">我们已在全国多个城市成功实施再生资源回收网络建设项目</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Case 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md case-study-card">
+                    <div class="case-header">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-emerald-100 text-emerald-800 text-sm font-semibold px-3 py-1 rounded-full">政府合作项目</span>
+                            <span class="ml-3 text-sm text-gray-500">天津市滨海新区</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">全域再生资源回收网络体系建设</h3>
+                        <p class="text-gray-600 mb-6">为滨海新区设计并实施全域再生资源回收网络，覆盖5个街道，服务人口120万</p>
+                        
+                        <div class="grid grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">6个月</div>
+                                <div class="text-sm text-gray-500">建设周期</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">180%</div>
+                                <div class="text-sm text-gray-500">回收量提升</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">12家</div>
+                                <div class="text-sm text-gray-500">加盟商签约</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">20万</div>
+                                <div class="text-sm text-gray-500">政策补贴(元)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-5 rounded-lg">
+                            <div class="flex items-start">
+                                <div class="text-emerald-600 mr-4 mt-1">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 italic mb-2 testimonial-quote">拾起卖咨询的专业团队为我们设计的GIS选址模型直接降低前期投入30%，其政策解读服务帮助我们快速通过环保验收，项目效果远超预期。</p>
+                                    <p class="text-sm text-gray-500">— 南开区环保局 张局长</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md case-study-card">
+                    <div class="case-header">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">企业合作项目</span>
+                            <span class="ml-3 text-sm text-gray-500">广州市越秀区</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">社区再生资源回收体系智能化升级</h3>
+                        <p class="text-gray-600 mb-6">为本地回收企业设计智能化社区回收网络，覆盖50个街道，服务居民50万人</p>
+                        
+                        <div class="grid grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">4个月</div>
+                                <div class="text-sm text-gray-500">建设周期</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">150%</div>
+                                <div class="text-sm text-gray-500">效率提升</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">85%</div>
+                                <div class="text-sm text-gray-500">社区覆盖</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">25%</div>
+                                <div class="text-sm text-gray-500">成本节约</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-5 rounded-lg">
+                            <div class="flex items-start">
+                                <div class="text-emerald-600 mr-4 mt-1">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 italic mb-2 testimonial-quote">科学化的回收站点布局和数字化管理平台帮助我们大幅提升了运营效率，同时人力成本降低25%，6个月内即收回投资成本。</p>
+                                    <p class="text-sm text-gray-500">— 广州环投集团 徐董事长</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md case-study-card">
+                    <div class="case-header">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-emerald-100 text-emerald-800 text-sm font-semibold px-3 py-1 rounded-full">政府合作项目</span>
+                            <span class="ml-3 text-sm text-gray-500">天津市南开区</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">寒地城市再生资源回收专项方案</h3>
+                        <p class="text-gray-600 mb-6">针对北方严寒气候特点，设计冬季可持续运营的再生资源回收网络解决方案</p>
+                        
+                        <div class="grid grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">5个月</div>
+                                <div class="text-sm text-gray-500">建设周期</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">120%</div>
+                                <div class="text-sm text-gray-500">冬季回收量</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">15个</div>
+                                <div class="text-sm text-gray-500">回收站点</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">18%</div>
+                                <div class="text-sm text-gray-500">成本降低</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-5 rounded-lg">
+                            <div class="flex items-start">
+                                <div class="text-emerald-600 mr-4 mt-1">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 italic mb-2 testimonial-quote">专业的冬季运营方案解决了我们多年来的季节性回收难题，首次实现了全年稳定运营，冬季回收量同比提升120%。</p>
+                                    <p class="text-sm text-gray-500">— 哈尔滨道里区城管局 王主任</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case 4 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md case-study-card">
+                    <div class="case-header">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">企业合作项目</span>
+                            <span class="ml-3 text-sm text-gray-500">西安市未央区</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">现代化再生资源分拣中心建设</h3>
+                        <p class="text-gray-600 mb-6">规划设计日处理200吨的现代化分拣中心，实现高效分类与资源最大化利用</p>
+                        
+                        <div class="grid grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">8个月</div>
+                                <div class="text-sm text-gray-500">建设周期</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">200%</div>
+                                <div class="text-sm text-gray-500">分拣效率</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">65%</div>
+                                <div class="text-sm text-gray-500">资源利用率</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-emerald-600 mb-1">示范</div>
+                                <div class="text-sm text-gray-500">省级示范项目</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-5 rounded-lg">
+                            <div class="flex items-start">
+                                <div class="text-emerald-600 mr-4 mt-1">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 italic mb-2 testimonial-quote">分拣中心的自动化设计和环保合规方案使我们成为区域示范项目，获得了省级循环经济示范项目称号及多项政策支持。</p>
+                                    <p class="text-sm text-gray-500">— 西安资源再生科技 赵董事长</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-8 section-title">关于拾起卖咨询</h2>
+                    
+                    <div class="bg-emerald-50 p-6 rounded-xl mb-8">
+                        <p class="text-gray-700 mb-4">拾起卖咨询成立于2013年，是中国领先的再生资源回收网络建设专业咨询机构。十年来，我们专注于为政府和企业提供再生资源全产业链解决方案。</p>
+                        <p class="text-gray-700">拥有行业最大的政策数据库和200+成功案例，我们的专家团队帮助客户构建高效、合规、可持续的再生资源回收体系。</p>
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="bg-emerald-100 text-emerald-800 p-3 rounded-lg mr-5 flex-shrink-0">
+                                <i class="fas fa-users text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">专家团队</h4>
+                                <p class="text-gray-600">我们的核心团队由10年以上行业经验的专家组成，涵盖环保政策、运营管理、工程技术、数字化等多个领域。团队成员曾主导多个国家级循环经济示范项目。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-emerald-100 text-emerald-800 p-3 rounded-lg mr-5 flex-shrink-0">
+                                <i class="fas fa-database text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">数据驱动</h4>
+                                <p class="text-gray-600">拥有行业最大的再生资源数据库，覆盖全国50+城市政策法规、价格走势、回收量等关键数据。基于数据分析为客户提供科学决策支持。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-emerald-100 text-emerald-800 p-3 rounded-lg mr-5 flex-shrink-0">
+                                <i class="fas fa-award text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">行业认可</h4>
+                                <p class="text-gray-600">中国循环经济协会理事单位，参与制定3项行业标准，获得"再生资源创新服务奖"等多项行业荣誉，被多家权威媒体专题报道。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-sm">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-8">我们的专业优势</h3>
+                        
+                        <div class="space-y-8">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-semibold text-gray-800">政策解读能力</span>
+                                    <span class="text-emerald-600 font-bold">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-emerald-600 h-2.5 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-semibold text-gray-800">项目落地经验</span>
+                                    <span class="text-emerald-600 font-bold">92%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-emerald-600 h-2.5 rounded-full" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-semibold text-gray-800">成本优化效果</span>
+                                    <span class="text-emerald-600 font-bold">88%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-emerald-600 h-2.5 rounded-full" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-semibold text-gray-800">客户满意度</span>
+                                    <span class="text-emerald-600 font-bold">98%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-emerald-600 h-2.5 rounded-full" style="width: 98%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-6">服务客户类型</h4>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                <div class="bg-white p-4 rounded-lg shadow-xs text-center">
+                                    <i class="fas fa-university text-3xl text-emerald-600 mb-2"></i>
+                                    <p class="font-medium">政府部门</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-xs text-center">
+                                    <i class="fas fa-building text-3xl text-emerald-600 mb-2"></i>
+                                    <p class="font-medium">环保企业</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-xs text-center">
+                                    <i class="fas fa-home text-3xl text-emerald-600 mb-2"></i>
+                                    <p class="font-medium">物业公司</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-xs text-center">
+                                    <i class="fas fa-truck text-3xl text-emerald-600 mb-2"></i>
+                                    <p class="font-medium">回收商</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-xs text-center">
+                                    <i class="fas fa-industry text-3xl text-emerald-600 mb-2"></i>
+                                    <p class="font-medium">处理厂</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-xs text-center">
+                                    <i class="fas fa-hand-holding-usd text-3xl text-emerald-600 mb-2"></i>
+                                    <p class="font-medium">投资方</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 section-title">联系我们</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">获取专属再生资源回收网络建设方案，请填写以下表单或直接联系我们</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row bg-white rounded-2xl shadow-md overflow-hidden">
+                <div class="lg:w-1/2 p-10">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-8">项目咨询</h3>
+                    
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">姓名/机构名称</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent" placeholder="请输入您的姓名或机构名称">
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">联系电话</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent" placeholder="请输入联系电话">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">电子邮箱</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent" placeholder="请输入电子邮箱">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-gray-700 font-medium mb-2">感兴趣的服务</label>
+                            <select id="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                                <option value="">请选择服务类型</option>
+                                <option value="front-end">前端回收体系建设</option>
+                                <option value="sorting-center">绿色分拣中心建设</option>
+                                <option value="tax">财税合规咨询</option>
+                                <option value="digital">数字化平台建设</option>
+                                <option value="qualification">资质申报服务</option>
+                                <option value="other">其他服务</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">项目需求描述</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent" placeholder="请详细描述您的项目需求"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-emerald-600 text-white py-4 px-6 rounded-lg font-bold hover:bg-emerald-700 transition duration-300 btn-primary">
+                            提交咨询需求
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2 bg-emerald-50 p-10">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-8">联系方式</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="bg-white p-3 rounded-lg text-emerald-600 mr-5">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-2">办公地址</h4>
+                                <p class="text-gray-600">天津市南开区时代奥城C6南8层</p>
+                                <p class="text-gray-600">广州市越秀区广州环投集团9层</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-white p-3 rounded-lg text-emerald-600 mr-5">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-2">联系电话</h4>
+                                <p class="text-gray-600">全国统一咨询热线：400-888-9999</p>
+                                <p class="text-gray-600">项目咨询专线：185-0000-8888</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-white p-3 rounded-lg text-emerald-600 mr-5">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-2">电子邮箱</h4>
+                                <p class="text-gray-600">商务合作：58007275@qq.com</p>
+                                <p class="text-gray-600">项目咨询：58007275@qq.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-white p-3 rounded-lg text-emerald-600 mr-5">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-2">工作时间</h4>
+                                <p class="text-gray-600">周一至周五 9:00-18:00</p>
+                                <p class="text-gray-600">周六 10:00-16:00（预约制）</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-4">关注我们</h4>
+                        <div class="flex space-x-6">
+                            <a href="#" class="bg-white w-12 h-12 rounded-full flex items-center justify-center text-emerald-600 hover:bg-emerald-100 transition duration-300">
+                                <i class="fab fa-weixin text-2xl"></i>
+                            </a>
+                            <a href="#" class="bg-white w-12 h-12 rounded-full flex items-center justify-center text-emerald-600 hover:bg-emerald-100 transition duration-300">
+                                <i class="fab fa-weibo text-2xl"></i>
+                            </a>
+                            <a href="#" class="bg-white w-12 h-12 rounded-full flex items-center justify-center text-emerald-600 hover:bg-emerald-100 transition duration-300">
+                                <i class="fab fa-linkedin-in text-2xl"></i>
+                            </a>
+                            <a href="#" class="bg-white w-12 h-12 rounded-full flex items-center justify-center text-emerald-600 hover:bg-emerald-100 transition duration-300">
+                                <i class="fab fa-youtube text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-recycle text-3xl text-emerald-400"></i>
+                        <span class="ml-3 text-2xl font-bold">拾起卖咨询</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">中国领先的再生资源回收网络建设专业咨询机构</p>
+                    <p class="text-gray-400">十年专注，助力循环经济发展</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">快速链接</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">服务内容</a></li>
+                        <li><a href="#process" class="text-gray-400 hover:text-white transition duration-300">服务流程</a></li>
+                        <li><a href="#cases" class="text-gray-400 hover:text-white transition duration-300">成功案例</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">关于我们</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">服务项目</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">前端回收体系建设</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">绿色分拣中心建设</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">财税合规咨询</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">数字化平台建设</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">资质申报服务</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">订阅行业报告</h4>
+                    <p class="text-gray-400 mb-4">订阅获取最新行业洞察与政策解读</p>
+                    <div class="flex mb-6">
+                        <input type="email" placeholder="您的邮箱地址" class="px-4 py-3 w-full rounded-l-lg focus:outline-none text-gray-800">
+                        <button class="bg-emerald-600 text-white px-6 py-3 rounded-r-lg hover:bg-emerald-700 transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <p class="text-sm text-gray-500">我们尊重您的隐私，不会共享您的信息</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 mb-4 md:mb-0">
+                    <p class="text-gray-400">© 2023 拾起卖咨询 版权所有</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">隐私政策</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">服务条款</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">法律声明</a>
+                    </div>
+                </div>
+                <div class="text-gray-400 text-sm">
+                    <p>津ICP备XXXXXXXX号-X | 京公网安备XXXXXXXX号</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-emerald-600 text-white p-4 rounded-full shadow-xl opacity-0 invisible transition-all duration-300 hover:bg-emerald-700">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
